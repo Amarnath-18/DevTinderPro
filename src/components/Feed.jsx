@@ -48,7 +48,7 @@ const Feed = () => {
       setIsLoadingIgnore(true);
       const toUserId = feedUsers[0]._id;
       const data = await axios.post(
-        BASE_URL + "/request/send/ignored/" + toUserId,
+        $`{BASE_URL}/request/send/ignored/${toUserId}`,
         {},
         { withCredentials: true }
       );
@@ -72,7 +72,7 @@ const Feed = () => {
 
   const getFeed = async () => {
     try {
-      const feedData = await axios.get(BASE_URL + "/request/feed", {
+      const feedData = await axios.get(`${BASE_URL}/request/feed`, {
         withCredentials: true,
       });
       dispatch(addFeed(feedData.data));

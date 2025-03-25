@@ -12,7 +12,7 @@ const NavBer = () => {
   const userimg = user?.photoUrl;
   const toggleLogout = async () => {
     try {
-      await axios.post(BASE_URL + "/user/logout", {}, { withCredentials: true }); // ✅ Fix here
+      await axios.post(`${BASE_URL}/user/logout`, {}, { withCredentials: true }); // ✅ Fix here
       dispatch(addUser(null));
       navigate("/login");
     } catch (error) {

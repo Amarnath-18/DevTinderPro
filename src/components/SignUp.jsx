@@ -31,7 +31,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await axios.post(BASE_URL + "/user/signUp", formData);
+      const response = await axios.post(`${BASE_URL}/user/signUp`, formData);
       navigate("/login");
     } catch (err) {
       setError(err.response?.data?.error || "Something went wrong");
