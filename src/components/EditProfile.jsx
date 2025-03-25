@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import {BASE_URL} from "../utils/constraints"
+
 
 const EditProfile = () => {
   const user = useSelector((state) => state.user);
@@ -46,7 +48,7 @@ const EditProfile = () => {
       };
 
       const response = await axios.patch(
-        `http://localhost:3000/userUpdate/${user?._id}`,
+        `${BASE_URL}/userUpdate/${user?._id}`,
         updatedData,
         { withCredentials: true }
       );
