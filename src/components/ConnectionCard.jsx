@@ -61,9 +61,15 @@ const ConnectionCard = ({ user }) => {
           )}
           <button
             onClick={() => navigate(`/viewConnectionProfile/${_id}?`)}
-            className="btn btn-primary btn-sm sm:btn-md"
+            className="btn btn-primary btn-sm"
           >
             View Profile
+          </button>
+          <button
+           onClick={() => navigate(`/chatBox/${_id}?`)}
+            className="btn btn-soft btn-sm"
+          >
+            Message
           </button>
         </div>
       </div>

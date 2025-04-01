@@ -13,6 +13,7 @@ import Connections from "./components/Connections";
 import Requests from "./components/Requests";
 import ViewReqProfile from "./components/ViewReqProfile";
 import ViewConnectionProfile from "./components/ViewConnectionProfile";
+import ChatBox from "./components/ChatBox";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
               <Route path="/viewprofile/:id" element={<ViewUserProfile/>}/>
               <Route path="/viewConnectionprofile/:id" element={<ViewConnectionProfile/>}/>
               <Route path="/viewReqProfile/:id" element={<ViewReqProfile/>} />
+              <Route path="/chatbox/:id" element={<ChatBox/>} />
             </Route>
           </Routes>
         </BrowserRouter>
