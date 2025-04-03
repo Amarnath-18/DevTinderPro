@@ -4,26 +4,27 @@ import { BASE_URL } from "../utils/constraints";
 import { useDispatch, useSelector } from "react-redux";
 import { addRequests } from "../utils/requestSlice";
 import RequestCard from "./RequestCard";
+import fetchRequests from "../functions/fetchRequests";
 
 const Requests = () => {
   const dispatch = useDispatch();
   const reqUsers = useSelector(state=>state.requests);
     console.log("This is ReqUsers ",reqUsers);
     
-  const fetchRequests = async () => {
-    try {
-      const response = await axios.get(`${BASE_URL}/user/received`, {
-        withCredentials: true,
-      });
-      console.log("this is requests ", response.data);
-      dispatch(addRequests(response.data));
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const fetchRequests = async () => {
+  //   try {
+  //     const response = await axios.get(`${BASE_URL}/user/received`, {
+  //       withCredentials: true,
+  //     });
+  //     console.log("this is requests ", response.data);
+  //     dispatch(addRequests(response.data));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   useEffect(() => {
-    fetchRequests();
+     fetchRequests(dispatch , addRequests);
   }, []);
   if(reqUsers.length==0) return <div className="text-center text-gray-500">No Request Found</div>;
 

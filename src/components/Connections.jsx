@@ -4,25 +4,14 @@ import axios from "axios";
 import { BASE_URL } from "../utils/constraints";
 import { useDispatch, useSelector } from "react-redux";
 import { addConnections } from "../utils/connectionsSlice.js";
+import  FetchConnections  from "../functions/fetchConnections.js";
 
 const Connections = () => {
   const dispatch = useDispatch();
   const connectionUsers = useSelector((state) => state.connections);
 
-  const FetchConnections = async () => {
-    try {
-      const respone = await axios.get(`${BASE_URL}/user/connections`, {
-        withCredentials: true,
-      });
-      console.log(respone.data.data);
-      dispatch(addConnections(respone.data.data));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
-    FetchConnections();
+    FetchConnections(dispatch , addConnections);
   }, []);
 
   if (connectionUsers.length == 0)

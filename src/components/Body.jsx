@@ -6,6 +6,8 @@ import axios from "axios";
 import { BASE_URL } from "../utils/constraints";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { addConnections} from  "../utils/connectionsSlice"
+import FetchConnections from "../functions/fetchConnections"
 
 const Body = () => {
   const dispatch = useDispatch();
@@ -24,9 +26,11 @@ const Body = () => {
     }
   };
 
+
   useEffect(()=>{
     if(!user)
     FetchUser();
+    FetchConnections(dispatch , addConnections)
   } , [])
 
   return (
